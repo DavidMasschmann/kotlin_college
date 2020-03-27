@@ -1,1 +1,1 @@
-# kotlin_college
+# Kotlin College
