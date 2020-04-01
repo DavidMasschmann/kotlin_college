@@ -18,12 +18,13 @@ class MainActivity : AppCompatActivity() {
         send.setOnClickListener(View.OnClickListener {
             var height = height.text.toString().toDouble()
             var weight = weight.text.toString().toDouble()
-            var bmi = (height * height) / weight
+            var bmi =  weight / (height * height)
 
             Toast.makeText(this, bmi.toString(), Toast.LENGTH_LONG) .show()
 
             val intent = Intent(this,Main2Activity::class.java)
-            intent.putExtra("BMI",)
+            intent.putExtra("bmi", bmi)
+            startActivity(intent)
         })
 
     }
