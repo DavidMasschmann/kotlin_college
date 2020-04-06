@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">ml_price</string>
+    <string name="textview1">1</string>
+    <string name="textview2">2</string>
+    <string name="textview3">3</string>
+    <string name="price_3">Price 3</string>
+    <string name="price_1">Price 1</string>
+    <string name="price_2">Price 2</string>
+    <string name="ml">milliliters</string>
+    <string name="final1">ml Price</string>
+    <string name="final2">ml Price</string>
+    <string name="final3">ml Price</string>
+    <string name="calculate">Calculate</string>
+    <string name="description_finalPrice">Shows the price of the milliliter after the Calculate button is pressed</string>
+    <string name="description_button">Calculate the price of the milliliter</string>
+</resources>
