@@ -7,10 +7,10 @@
     <string name="price_1">Price 1</string>
     <string name="price_2">Price 2</string>
     <string name="ml">milliliters</string>
-    <string name="final1">ml Price</string>
-    <string name="final2">ml Price</string>
-    <string name="final3">ml Price</string>
+    <string name="textView_final">ml Price</string>
     <string name="calculate">Calculate</string>
     <string name="description_finalPrice">Shows the price of the milliliter after the Calculate button is pressed</string>
     <string name="description_button">Calculate the price of the milliliter</string>
+    <string name="error_priceMissing">Hey! Seems like you left one of the price fields empty.</string>
+    <string name="error_mlMissing">Hey! Seems like you left one of the milliliters fields empty.</string>
 </resources>
