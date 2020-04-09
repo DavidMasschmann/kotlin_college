@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/final2"
+        android:text="@string/textView_final"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/ml2"
         app:layout_constraintTop_toTopOf="@+id/textView2"
@@ -25,14 +25,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/final3"
+        android:text="@string/textView_final"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/ml3"
         app:layout_constraintTop_toTopOf="@+id/textView3"
         android:contentDescription="@string/description_finalPrice"/>
 
     <EditText
-
         android:id="@+id/price3"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -143,14 +142,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/final1"
+        android:text="@string/textView_final"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/ml1"
         app:layout_constraintTop_toTopOf="@+id/textView1"
         android:contentDescription="@string/description_finalPrice"/>
 
     <Button
-        android:id="@+id/calculate"
+        android:id="@+id/button_calculate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
