@@ -3,9 +3,9 @@
     <string name="textview1">1</string>
     <string name="textview2">2</string>
     <string name="textview3">3</string>
-    <string name="price_3">Price 3</string>
     <string name="price_1">Price 1</string>
     <string name="price_2">Price 2</string>
+    <string name="price_3">Price 3</string>
     <string name="ml">milliliters</string>
     <string name="textView_final">ml Price</string>
     <string name="calculate">Calculate</string>
