@@ -1,47 +1,50 @@
 package com.example.covid19
 
 import android.content.Context
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
-import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
-import org.json.JSONObject
 import java.io.IOException
 import java.io.InputStream
-import java.text.SimpleDateFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-  var lista = arrayListOf<String>()
+  private var lista = arrayListOf<Boletim>()
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
     readJson(this)
 
-    var adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,lista)
-    lista_view.adapter= adapter
+    var adapter = BoletimAdapter(lista)
+    list.adapter = adapter
+    readJson(this)
   }
 
 
   fun readJson(context: Context){
-    var json: String?=null
+    var json: String? = null
     val listaBoletins = mutableListOf<Boletim>()
+
     try {
       val inputStream: InputStream= context.assets.open("data.json")
       json = inputStream.bufferedReader().use { it.readText() }
-     // txtValue.text=json.toString()
-      var jsonArray =JSONArray(json)
-      for (i in 0 .. jsonArray.length()-1){
-        var js = jsonArray.getJSONObject(i)
+      var jsonArray = JSONArray(json)
+
+      for (i in 0 until jsonArray.length()){
+        val js = jsonArray.getJSONObject(i)
         val dia = formatarData(js.getString("boletim").substring(0,10))
-        lista.add(dia)
+        val hora = js.getString("boletim").substring(12,17)
+        val confirmados = js.getString("Confirmados")
+        val mortes = js.getString("mortes")
+
+        var item = Boletim(data = dia, hora = hora, confirmados = confirmados.toString().toInt(), mortes = mortes.toString().toInt())
+        lista.add(item)
       }
     }
     catch (e : IOException){
@@ -50,11 +53,9 @@ class MainActivity : AppCompatActivity() {
 
   }
   fun formatarData(data: String): String {
-    val diaString =data
     var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
-    var date = LocalDate.parse(diaString)
-    var formattedDate = date.format(formatter)
-    return formattedDate
+    var date = LocalDate.parse(data)
+    return date.format(formatter)
   }
 
 }

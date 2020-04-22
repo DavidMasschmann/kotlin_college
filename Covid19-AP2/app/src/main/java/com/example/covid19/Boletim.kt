@@ -26,7 +26,6 @@ class Boletim(
     val diaString =data
     var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
     var date = LocalDate.parse(diaString)
-    var formattedDate = date.format(formatter)
-    return formattedDate
+    return date.format(formatter)
   }
 }
