@@ -1,5 +1,6 @@
 package com.example.covid19
 
+import android.provider.Settings.System.getString
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,12 +20,12 @@ class BoletimAdapter (private val boletins: List<Boletim>): RecyclerView.Adapter
         
         vh.itemView.setOnClickListener {
             val boletim = boletins[vh.adapterPosition]
-            Toast.makeText(v.context,boletim.toString(),Toast.LENGTH_LONG).show()
+            Toast.makeText(v.context,boletim.toString(),Toast.LENGTH_SHORT).show()
         }
 
         vh.txtData.setOnClickListener{
             val boletim = boletins[vh.adapterPosition]
-            Toast.makeText(v.context,boletim.monitoramento.toString(),Toast.LENGTH_LONG).show()
+            Toast.makeText(v.context,boletim.monitoramento.toString(),Toast.LENGTH_SHORT).show()
 
         }
         return vh
@@ -40,8 +41,9 @@ class BoletimAdapter (private val boletins: List<Boletim>): RecyclerView.Adapter
 
         holder.txtData.text = boletim.data
         holder.txtHora.text = boletim.hora
-        holder.txtMortes.text = boletim.mortes.toString()
-        holder.txtNconfirmados.text = boletim.confirmados.toString()
+        holder.txtMortes.text = "Mortes: ${boletim.mortes.toString()}"
+        holder.txtMortes.text = "${getString(R.string.deaths)}"
+        holder.txtNconfirmados.text = "Confirmados: ${boletim.confirmados.toString()}"
     }
 
     class VH(itenView: View):RecyclerView.ViewHolder(itenView){
