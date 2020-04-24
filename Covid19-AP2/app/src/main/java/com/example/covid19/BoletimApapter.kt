@@ -42,7 +42,6 @@ class BoletimAdapter (private val boletins: List<Boletim>): RecyclerView.Adapter
         holder.txtData.text = boletim.data
         holder.txtHora.text = boletim.hora
         holder.txtMortes.text = "Mortes: ${boletim.mortes.toString()}"
-        holder.txtMortes.text = "${getString(R.string.deaths)}"
         holder.txtNconfirmados.text = "Confirmados: ${boletim.confirmados.toString()}"
     }
 
