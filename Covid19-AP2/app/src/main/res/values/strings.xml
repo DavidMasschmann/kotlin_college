@@ -1,8 +1,0 @@
-<resources>
-  <string name="app_name">Covid19</string>
-  <string name="deaths">Deaths</string>
-  <string name="numero_mortes">Número de Mortes</string>
-  <string name="numero_confirmados">Casos confirmados</string>
-  <string name="data_boletim">Data do boletim</string>
-  <string name="hora_boletim">Hora que o boletim foi publicado</string>
-</resources>
