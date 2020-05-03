@@ -1,0 +1,57 @@
+<resources>
+
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+  </style>
+
+  <style name="dataBoletim">
+    <item name="android:layout_marginStart">16dp</item>
+    <item name="android:layout_marginTop">16dp</item>
+    <item name="android:fontFamily">monospace</item>
+    <item name="android:textAlignment">viewEnd</item>
+    <item name="android:textSize">24sp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/primaryTextColor</item>
+
+  </style>
+
+  <style name="horaBoletim">
+    <item name="android:layout_marginStart">16dp</item>
+    <item name="android:layout_marginTop">16dp</item>
+    <item name="android:fontFamily">monospace</item>
+    <item name="android:textAlignment">viewEnd</item>
+    <item name="android:textSize">12sp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/primaryTextColor</item>
+
+  </style>
+  <style name="txtBoletim">
+    <item name="android:layout_marginStart">16dp</item>
+    <item name="android:textSize">18sp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/primaryTextColor</item>
+    <item name="android:textAlignment">center</item>
+
+  </style>
+
+  <style name="txtNumeros" parent="txtBoletim">
+    <item name="android:layout_marginStart">8dp</item>
+    <item name="android:layout_marginTop">8dp</item>
+    <item name="android:textColor">@color/primaryTextColor</item>
+    <item name="android:textSize">36sp</item>
+  </style>
+
+  <style name="Box" parent="txtBoletim">
+    <item name="android:layout_marginTop">8dp</item>
+    <item name="android:lineSpacingExtra">10sp</item>
+    <item name="android:padding">4dp</item>
+    <item name="android:textColor">@color/tertiaryTextColor</item>
+    <item name="android:textSize">28sp</item>
+    <item name="android:textStyle">bold</item>
+  </style>
+
+</resources>
