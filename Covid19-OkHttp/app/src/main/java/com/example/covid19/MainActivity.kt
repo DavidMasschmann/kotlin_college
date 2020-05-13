@@ -15,7 +15,8 @@ import android.view.MenuInflater as MenuInflater
 
 class MainActivity : AppCompatActivity() {
 
-  private  var  asyncTask : BoletimTask? = null
+  private var asyncTask : BoletimTask? = null
+
   private var boletinsList = mutableListOf<Boletim>()
   private var adapter = BoletimAdapter(boletinsList)
 
@@ -28,34 +29,33 @@ class MainActivity : AppCompatActivity() {
   }
 
 
-  fun carregaDados(){
+  fun carregaDados() {
     boletinsList.clear()
-    if (boletinsList.isNotEmpty()){
+
+    if (boletinsList.isNotEmpty()) {
       showProgress(false)
-    }else{
-      if(asyncTask == null){
-        if (BoletimHttp.hasConnection(this)){
-          starDonwload()
-        }else{
-          progressBar.visibility =View.GONE
+    } else {
+      if (asyncTask == null){
+        if (BoletimHttp.hasConnection(this)) {
+          starDownload()
+        } else {
+          progressBar.visibility = View.GONE
           txtMsg.text = "Erro"
         }
-      }else if(asyncTask?.status == AsyncTask.Status.RUNNING){
+      }else if (asyncTask?.status == AsyncTask.Status.RUNNING) {
         showProgress(true)
       }
     }
   }
+
   override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
     R.id.menu_refresh -> {
-
       carregaDados()
       Log.e("ERRO", "CARREGA")
       true
     }
 
-
     else -> {
-
       super.onOptionsItemSelected(item)
     }
   }
@@ -65,58 +65,51 @@ class MainActivity : AppCompatActivity() {
     return super.onCreateOptionsMenu(menu)
   }
 
-  private fun initRecyclerView(){
+  private fun initRecyclerView() {
     rvDados.adapter=adapter
-    // val layoutManager = GridLayoutManager(this,1)
     val layoutManager = LinearLayoutManager(this)
     rvDados.layoutManager=layoutManager
   }
 
-
-  private fun starDonwload(){
-    if (asyncTask?.status!=AsyncTask.Status.RUNNING){
-      asyncTask =BoletimTask()
+  private fun starDownload() {
+    if (asyncTask?.status != AsyncTask.Status.RUNNING) {
+      asyncTask = BoletimTask()
       asyncTask?.execute()
     }
   }
-  private fun updateBoletns(result: List<Boletim>?){
-    if (result!=null){
+  private fun updateBoletns(result: List<Boletim>?) {
+    if (result != null) {
       boletinsList.clear()
       boletinsList.addAll(result.reversed())
     }else{
       txtMsg.text = "Erro ao Carregar"
     }
     adapter.notifyDataSetChanged()
-    asyncTask=null
+    asyncTask = null
   }
 
-  fun showProgress(show: Boolean){
-    if(show){
-      txtMsg.text= "Carregando...."
-    }
-    txtMsg.visibility =if (show) View.VISIBLE else View.GONE
-    progressBar.visibility =if (show) View.VISIBLE else View.GONE
+  fun showProgress(show: Boolean) {
+    if(show)
+      txtMsg.text = "Carregando..."
+
+    txtMsg.visibility = if (show) View.VISIBLE else View.GONE
+    progressBar.visibility = if (show) View.VISIBLE else View.GONE
   }
 
   inner class BoletimTask: AsyncTask<Void, Void, List<Boletim>?>() {
     override fun onPreExecute() {
       super.onPreExecute()
       showProgress(true)
-
     }
 
     override fun doInBackground(vararg p0: Void?): List<Boletim>? {
       return BoletimHttp.loadBoletim()
-
     }
 
     override fun onPostExecute(bo: List<Boletim>?) {
       super.onPostExecute(bo)
       showProgress(false)
       updateBoletns(bo)
-
     }
-
   }
-
 }

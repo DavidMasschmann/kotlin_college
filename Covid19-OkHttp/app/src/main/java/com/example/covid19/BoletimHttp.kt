@@ -57,6 +57,7 @@ object BoletimHttp {
 
     return boletins
   }
+
   fun formatarData(data: String): String {
     val diaString =data
     var formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy")
@@ -65,6 +66,7 @@ object BoletimHttp {
     return formattedDate
 
   }
+
   fun loadBoletim(): List<Boletim>?{
     val client = OkHttpClient.Builder()
       .readTimeout(5,TimeUnit.SECONDS)
@@ -78,6 +80,5 @@ object BoletimHttp {
     val json = JSONArray(jsonString)
 
     return readBoletins(json)
-
   }
 }
